@@ -30,7 +30,7 @@ public class testingMain {
 				StringBuilder fileURL = new StringBuilder("./temp/image");
 				int xAxis = 50 + 100*x;
 				int yAxis = 50 + 100*y;
-				userURL.append(Integer.toString(xAxis)).append("&Y=").append(Integer.toString(yAxis)).append("&O=26891370&R=00010&F=0171&A=71714&rand=0.50");
+				userURL.append(Integer.toString(xAxis)).append("&Y=").append(Integer.toString(yAxis)).append("&O=26891370&R=00003&F=0171&A=71714&rand=0.50");
 				imageURL = userURL.toString();
 				downloader.setImageURL(imageURL);
 				fileURL.append(Integer.toString(x)).append(Integer.toString(y)).append(".jpeg");
@@ -38,11 +38,11 @@ public class testingMain {
 				downloader.setTargetURL(targetURL);
 				downloader.downloadImage();
 				//cropping all images
-				ImageCropper.cropImage(44, 44, 100, 100, targetURL);
+				ImageCropper.cropImage(44, 44, 102, 102, targetURL);
 				//draw the cropped image into one buffered image
 				try{
 					BufferedImage tempBI = ImageIO.read(new File(targetURL));
-					g.drawImage(tempBI,x*100,y*100,null);
+					g.drawImage(tempBI,x*102,y*102,null);
 				}
 				catch(IOException e){
 					System.out.println(e.getMessage());
